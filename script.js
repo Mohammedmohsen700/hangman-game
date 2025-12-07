@@ -1,37 +1,54 @@
 /*-------------------------------- Constants --------------------------------*/
-let words = ["crystal","Cristiano Ronaldo","penguin","YOYO","ninja"];
-
+const words = [
+    {word: "crystal", hint: "A shiny, see-through rock that sparkles" },
+    {word: "Cristiano Ronaldo", hint: " The Best Player In Football History ? " },
+    {word: "penguin", hint: "A bird that cant fly but wears a tuxedo :) !" },
+    {word: "YOYO", hint: "A circular object that returns to you after throwing it" } ,           
+    {word: "ninja" , hint: "You ll never see one… and thats exactly the point" }
+];
 
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let secretWord = words [Math.floor(Math.random() * words.length)];
+let selectedWord = words [Math.floor(Math.random() * words.length)];
+let secretWord = selectedWord.word;
+let hint = selectedWord.hint
+ 
 
 
 
 
 /*------------------------ Cached Element References ------------------------*/
+
+
 const wordDisplayDiv = document.getElementById("wordDisplay");
 const playerGuessInput = document.getElementById("playerGuess");
-const buttonsubmitGuess = document.getElementById("guessBtn");
-
+const submitBtn = document.getElementById("submitGuess");
+const hintDisplay = document.getElementById("hint");
 
 /*-------------------------------- Functions --------------------------------*/
 function displaySecretWord () {
-    let displaySecretWord2 = "";
+    let display = "";
    
     for (let i = 0 ; i < secretWord.length ; i++){
         if (secretWord [i] === " ") {
-            displaySecretWord2 += " ";
+            display += " ";
         } else {
-            displaySecretWord2 += "_";
+            display += "_";
         }
 }
- wordDisplayDiv.textContent = displaySecretWord2;
+ wordDisplayDiv.textContent = display;
 }
  displaySecretWord();
 
 
-
 /*----------------------------- Event Listeners -----------------------------*/
+submitBtn.addEventListener("click",function(){
+    let guess = playerGuessInput.value;
+    playerGuessInput.value = "";
+
+})
+
+hintDisplay.textContent = hint; 
+// wordDisplayDiv.textContent = secretWord;
 
