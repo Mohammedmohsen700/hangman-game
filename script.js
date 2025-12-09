@@ -29,6 +29,8 @@ const hintDisplay = document.getElementById("hint");
 const restartBtn = document.getElementById("restartBtn")
 const livesDisplay = document.getElementById("livesDisplay");
 const wrongGuessesDisplay = document.getElementById("wrongGuessesDisplay");
+const gameMessage = document.getElementById("message");
+
 /*-------------------------------- Functions --------------------------------*/
 function displaySecretWord () {
     let display = "";
@@ -56,7 +58,7 @@ function displaySecretWord () {
     selectedWord = words [Math.floor(Math.random() * words.length)];
     secretWord = selectedWord.word;
     hint = selectedWord.hint;
-    
+    showMessage = ("");
     restartBtn.style.display = "none";
     displaySecretWord();
     updateStatus();
@@ -88,6 +90,9 @@ for(let i = 0 ; i < guess.length; i++){
             }
             }
         }
+        function showMessage(text) {
+             gameMessage.textContent = text;
+        }
     displaySecretWord();    
     updateStatus();
         
@@ -95,7 +100,7 @@ for(let i = 0 ; i < guess.length; i++){
        
         // lose condition
         if (lives <= 0){
-        console.log("YOU LOST !, Correct Answer Is : " + secretWord );
+        showMessage("YOU LOST !, Correct Answer Is : " + secretWord );
         gameOver = true;
         restartBtn.style.display = "inline-block";
     }   
@@ -110,7 +115,7 @@ for(let i = 0 ; i < guess.length; i++){
         }
    }
 if (hasWon) {
-    console.log("YOU WON ! The Word Is: " + secretWord );
+    showMessage("YOU WON ! The Word Is: " + secretWord );
     gameOver = true;
     restartBtn.style.display = "inline-block";
 }
