@@ -1,0 +1,12 @@
+body{
+    background: rgb(30, 197, 206) ;
+    display: grid;
+
+}
+p{
+    background-color: rgb(249, 249, 249);
+}
+button{
+    color: rgb(213, 14, 110);
+    font-size: medium;
+}
