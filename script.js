@@ -18,7 +18,7 @@ let wrongGuesses = [];
 let maxLives = 6;
 let lives = maxLives
 let gameOver = false;
-
+let mistakes = 0;
 /*------------------------ Cached Element References ------------------------*/
 
 
@@ -30,6 +30,9 @@ const restartBtn = document.getElementById("restartBtn")
 const livesDisplay = document.getElementById("livesDisplay");
 const wrongGuessesDisplay = document.getElementById("wrongGuessesDisplay");
 const gameMessage = document.getElementById("message");
+const hangmanpics = document.querySelectorAll(".hangman-pic");
+
+
 
 /*-------------------------------- Functions --------------------------------*/
 function displaySecretWord () {
@@ -69,6 +72,20 @@ function displaySecretWord () {
   }
   updateStatus();
 
+//   hangmanpics
+
+function wrongGuess(){
+    if(mistakes < hangmanpics.length - 1){
+        hangmanpics[mistakes].style.display = 'none';
+        mistakes++;
+        hangmanpics[mistakes].style.display= 'block';
+    } else {
+        alert("Game Over!");
+
+    }
+    }
+
+
  
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -87,6 +104,7 @@ for(let i = 0 ; i < guess.length; i++){
             } else {
                 wrongGuesses.push(letter);
                 lives --;
+                wrongGuess();
             }
             }
         }
