@@ -63,6 +63,12 @@ function displaySecretWord () {
     hint = selectedWord.hint;
     showMessage = ("");
     restartBtn.style.display = "none";
+    mistakes = 0;
+    for(let i = 0; i < hangmanpics.length; i++){
+        hangmanpics[i].style.display = "none";
+    }
+    hangmanpics[0].style.display="block";
+    
     displaySecretWord();
     updateStatus();
  }
