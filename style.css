@@ -1,15 +1,51 @@
 body{
-    background: rgb(30, 197, 206) ;
-    display: grid;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #1cb1ae ;
+    text-align: center;
+  
 
 }
 p{
-    background-color: rgb(249, 249, 249);
+    
+    font-size: 20px;
 }
-button{
-    color: rgb(213, 14, 110);
-    font-size: medium;
+#title {
+    
+    font-size: 60px;
+    color: black
 }
-h1{
-    color: aliceblue;
+
+#wordDisplay {
+   padding: 20px;
+    font-size: 30px;
+    letter-spacing: 15px;
 }
+#message {
+
+font-size: 30px;
+color: rgb(226, 43, 49);
+}
+#hint{
+    font-size: 25px;
+    text-align: center;
+}
+#instructions { 
+    font-size: 20px;
+}
+#livesDisplay { 
+    font-size: 25px;
+    padding: 10px;
+}
+
+#restartBtn{
+    font-size: 15;
+}
+#playerGuess {
+    font-size: 25px;
+}
+#hangman-container {
+    margin: 20px auto;
+    width: 300px;
+}
+
+

@@ -68,7 +68,7 @@ function displaySecretWord () {
         hangmanpics[i].style.display = "none";
     }
     hangmanpics[0].style.display="block";
-    
+
     displaySecretWord();
     updateStatus();
  }
@@ -99,6 +99,7 @@ submitBtn.addEventListener("click",function(){
     if(gameOver) return;
     let guess = playerGuessInput.value.trim().toLowerCase();
     playerGuessInput.value = "";
+    playerGuessInput.focus();
 if (!guess) return;
 
 for(let i = 0 ; i < guess.length; i++){
@@ -124,7 +125,7 @@ for(let i = 0 ; i < guess.length; i++){
        
         // lose condition
         if (lives <= 0){
-        showMessage("YOU LOST !, Correct Answer Is : " + secretWord );
+        alert("YOU LOST ! Correct Answer Is : " + secretWord );
         gameOver = true;
         restartBtn.style.display = "inline-block";
     }   
@@ -139,11 +140,17 @@ for(let i = 0 ; i < guess.length; i++){
         }
    }
 if (hasWon) {
-    showMessage("YOU WON ! The Word Is: " + secretWord );
+ alert("YOU WON ! The Word Is: " + secretWord );
     gameOver = true;
     restartBtn.style.display = "inline-block";
 }
 });
 restartBtn.addEventListener("click", restartGame);
+
+playerGuessInput.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){ 
+        submitBtn.click();  
+    }
+});
 
 
