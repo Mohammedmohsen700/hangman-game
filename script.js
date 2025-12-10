@@ -4,7 +4,11 @@ const words = [
     {word: "cristiano ronaldo", hint: " The Best Player In Football History ? " },
     {word: "penguin", hint: "A bird that cant fly but wears a tuxedo :) !" },
     {word: "yoyo", hint: "A circular object that returns to you after throwing it" } ,           
-    {word: "ninja" , hint: "You ll never see one… and thats exactly the point" }
+    {word: "ninja" , hint: "You ll never see one… and thats exactly the point" },
+    {word:  "apple", hint:"A popular fruit and tech company"},
+    {word:"butterfly", hint:"An insect with colorful wings"},
+    {word:"pyramid", hint:"A triangular structure built in ancient Egypt"}
+
 ];
 
 
