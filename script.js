@@ -14,6 +14,7 @@ const words = [
 
 
 /*---------------------------- Variables (state) ----------------------------*/
+
 let selectedWord = words [Math.floor(Math.random() * words.length)];
 let secretWord = selectedWord.word;
 let hint = selectedWord.hint
@@ -23,6 +24,7 @@ let maxLives = 6;
 let lives = maxLives
 let gameOver = false;
 let mistakes = 0;
+
 /*------------------------ Cached Element References ------------------------*/
 
 
@@ -34,7 +36,7 @@ const restartBtn = document.getElementById("restartBtn")
 const livesDisplay = document.getElementById("livesDisplay");
 const wrongGuessesDisplay = document.getElementById("wrongGuessesDisplay");
 const hangmanpics = document.querySelectorAll(".hangman-pic");
-
+const message = document.getElementById("message");
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -61,6 +63,7 @@ function displaySecretWord () {
     wrongGuesses = [];
     lives = maxLives;
     gameOver = false;
+    message.textContent = "";
     selectedWord = words [Math.floor(Math.random() * words.length)];
     secretWord = selectedWord.word;
     hint = selectedWord.hint;
@@ -125,7 +128,7 @@ for(let i = 0 ; i < guess.length; i++){
        
         // lose condition
         if (lives <= 0){
-        alert("YOU LOST ! Correct Answer Is : " + secretWord );
+        message.textContent="YOU LOST ! Correct Answer Is : " + secretWord ;
         gameOver = true;
         restartBtn.style.display = "inline-block";
         return;
@@ -141,7 +144,7 @@ for(let i = 0 ; i < guess.length; i++){
         }
    }
 if (hasWon) {
- alert("YOU WON ! The Word Is: " + secretWord );
+ message.textContent= "YOU WON ! The Word Is: " + secretWord ;
     gameOver = true;
     restartBtn.style.display = "inline-block";
 }
@@ -153,5 +156,3 @@ playerGuessInput.addEventListener("keydown", function(e){
         submitBtn.click();  
     }
 });
-
-
